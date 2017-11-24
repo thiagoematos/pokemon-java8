@@ -1,30 +1,31 @@
 package demo;
 
-import model.Trainer;
-import util.TrainerFactory;
+import model.Treinador;
+import util.GeradorDeTreinadores;
 
 import java.util.List;
 
 public class A_Lambda {
 
     public static void main(String[] args) {
-        List<Trainer> trainers = TrainerFactory.getCharactersOfFirstSeason();
-        imprimirNomeDosTreinadores(trainers);
+        List<Treinador> treinadores = GeradorDeTreinadores
+                .obterPersonagensPrincipaisDaPrimeiraTemporada();
+        imprimirNomeDosTreinadores(treinadores);
     }
 
-    private static void imprimirNomeDosTreinadores(List<Trainer> trainers) {
-        java6(trainers);
-        java8(trainers);
+    private static void imprimirNomeDosTreinadores(List<Treinador> treinadores) {
+        java6(treinadores);
+        java8(treinadores);
     }
 
-    private static void java6(List<Trainer> trainers) {
-        for (Trainer trainer : trainers) {
-            System.out.println(trainer.getName());
+    private static void java6(List<Treinador> treinadores) {
+        for (Treinador treinador : treinadores) {
+            System.out.println(treinador.getNome());
         }
     }
 
-    private static void java8(List<Trainer> trainers) {
-        trainers.forEach(trainer -> System.out.println(trainer.getName()));
+    private static void java8(List<Treinador> treinadores) {
+        treinadores.forEach(treinador -> System.out.println(treinador.getNome()));
     }
 
 }

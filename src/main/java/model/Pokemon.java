@@ -4,53 +4,53 @@ import java.util.Optional;
 
 public enum Pokemon {
 
-    VENUSAUR(Type.POISON, null),
-    IVYSAUR(Type.POISON, VENUSAUR),
-    BULBASAUR(Type.POISON, IVYSAUR),
+    VENUSAUR(Tipo.VENENO, null),
+    IVYSAUR(Tipo.VENENO, VENUSAUR),
+    BULBASAUR(Tipo.VENENO, IVYSAUR),
 
-    RAICHU(Type.ELECTRIC, null),
-    PIKACHU(Type.ELECTRIC, RAICHU),
+    RAICHU(Tipo.ELETRICO, null),
+    PIKACHU(Tipo.ELETRICO, RAICHU),
 
-    CHARIZARD(Type.FIRE, null),
-    CHARMELEON(Type.FIRE, CHARIZARD),
-    CHARMANDER(Type.FIRE, CHARMELEON),
+    CHARIZARD(Tipo.FOGO, null),
+    CHARMELEON(Tipo.FOGO, CHARIZARD),
+    CHARMANDER(Tipo.FOGO, CHARMELEON),
 
-    BLASTOISE(Type.WATER, RAICHU),
-    WARTORTLE(Type.WATER, BLASTOISE),
-    SQUIRTLE(Type.WATER, WARTORTLE),
+    BLASTOISE(Tipo.AGUA, RAICHU),
+    WARTORTLE(Tipo.AGUA, BLASTOISE),
+    SQUIRTLE(Tipo.AGUA, WARTORTLE),
 
-    NIDORINA(Type.POISON, null),
-    NIDORAN_F(Type.POISON, NIDORINA),
+    NIDORINA(Tipo.VENENO, null),
+    NIDORAN_F(Tipo.VENENO, NIDORINA),
 
-    GOLDUCK(Type.WATER, null),
-    PSYDUCK(Type.WATER, GOLDUCK),
+    GOLDUCK(Tipo.AGUA, null),
+    PSYDUCK(Tipo.AGUA, GOLDUCK),
 
-    ARCANINE(Type.FIRE, null),
-    GROWLITHE(Type.FIRE, ARCANINE),
+    ARCANINE(Tipo.FOGO, null),
+    GROWLITHE(Tipo.FOGO, ARCANINE),
 
-    RATICATE(Type.NORMAL, null),
-    RATTATA(Type.NORMAL, RATICATE),
+    RATICATE(Tipo.NORMAL, null),
+    RATTATA(Tipo.NORMAL, RATICATE),
 
-    PORYGON(Type.NORMAL, null);
+    PORYGON(Tipo.NORMAL, null);
 
-    private Type type;
-    private Pokemon next;
+    private Tipo tipo;
+    private Pokemon evolucao;
 
-    Pokemon(Type type, Pokemon next) {
-        this.type = type;
-        this.next = next;
+    Pokemon(Tipo tipo, Pokemon evolucao) {
+        this.tipo = tipo;
+        this.evolucao = evolucao;
     }
 
-    public Type getType() {
-        return this.type;
+    public Tipo getTipo() {
+        return this.tipo;
     }
 
-    public Pokemon getNextJava6() {
-        return next;
+    public Pokemon getEvolucaoJava6() {
+        return evolucao;
     }
 
-    public Optional<Pokemon> getNext() {
-        return Optional.ofNullable(next);
+    public Optional<Pokemon> getEvolucao() {
+        return Optional.ofNullable(evolucao);
     }
 
 }

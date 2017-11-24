@@ -1,29 +1,34 @@
 package demo;
 
 import model.Pokemon;
-import model.Trainer;
-import util.LeagueValidator;
+import model.Treinador;
+import util.LigaValidador;
 
 public class B_FunctionalInterface_DefaultMethod {
 
     public static void main(String[] args) {
-        Trainer joaozinho = new Trainer(
+        Treinador joaozinho = new Treinador(
                 "Joãozinho",
                 new Pokemon[]{Pokemon.ARCANINE}
         );
 
-        LeagueValidator indigoLeagueValidator = trainer -> trainer.getPokemons().size() > 3;
-        LeagueValidator orangeLeagueValidator = trainer -> trainer.getName().startsWith("J");
+        LigaValidador ligaIndigoValidador =
+                treinador -> treinador.getPokemons().size() > 3;
+        LigaValidador ligaLaranaValidador =
+                treinador -> treinador.getNome().startsWith("J");
 
-        validarSeTreinadorPodeParticiparDaLiga(joaozinho, indigoLeagueValidator);
-        validarSeTreinadorPodeParticiparDaLiga(joaozinho, orangeLeagueValidator);
+        validarSeTreinadorPodeParticiparDaLiga(
+                "Liga Indigo", joaozinho, ligaIndigoValidador);
+        validarSeTreinadorPodeParticiparDaLiga(
+                "Liga Laranja", joaozinho, ligaLaranaValidador);
     }
 
     private static void validarSeTreinadorPodeParticiparDaLiga(
-            Trainer trainer,
-            LeagueValidator leagueValidator) {
-        leagueValidator.validate(trainer);
-        leagueValidator.printResultFor(trainer);
+            String nomeDaLiga,
+            Treinador treinador,
+            LigaValidador ligaValidador) {
+        System.out.println(nomeDaLiga);
+        ligaValidador.imprimirResultadoPara(treinador);
     }
 
 }
