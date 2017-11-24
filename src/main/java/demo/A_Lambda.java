@@ -15,17 +15,12 @@ public class A_Lambda {
 
     private static void imprimirNomeDosTreinadores(List<Treinador> treinadores) {
         java6(treinadores);
-        java8(treinadores);
     }
 
     private static void java6(List<Treinador> treinadores) {
         for (Treinador treinador : treinadores) {
             System.out.println(treinador.getNome());
         }
-    }
-
-    private static void java8(List<Treinador> treinadores) {
-        treinadores.forEach(treinador -> System.out.println(treinador.getNome()));
     }
 
 }

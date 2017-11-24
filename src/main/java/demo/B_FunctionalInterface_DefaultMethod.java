@@ -13,9 +13,19 @@ public class B_FunctionalInterface_DefaultMethod {
         );
 
         LigaValidador ligaIndigoValidador =
-                treinador -> treinador.getPokemons().size() > 3;
+                new LigaValidador() {
+                    @Override
+                    public boolean estaClassificado(Treinador treinador) {
+                        return treinador.getPokemons().size() > 3;
+                    }
+                };
         LigaValidador ligaLaranaValidador =
-                treinador -> treinador.getNome().startsWith("J");
+                new LigaValidador() {
+                    @Override
+                    public boolean estaClassificado(Treinador treinador) {
+                        return treinador.getNome().startsWith("J");
+                    }
+                };
 
         validarSeTreinadorPodeParticiparDaLiga(
                 "Liga Indigo", joaozinho, ligaIndigoValidador);
@@ -27,8 +37,16 @@ public class B_FunctionalInterface_DefaultMethod {
             String nomeDaLiga,
             Treinador treinador,
             LigaValidador ligaValidador) {
+
+        String resultado =
+                ligaValidador.estaClassificado(treinador)
+                        ? "CLASSIFICADO :)"
+                        : "DESCLASSIFICADO :(";
+
         System.out.println(nomeDaLiga);
-        ligaValidador.imprimirResultadoPara(treinador);
+        System.out.println(
+                treinador.getNome() + " está " + resultado
+        );
     }
 
 }

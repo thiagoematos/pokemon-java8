@@ -12,14 +12,14 @@ public class C_List_DefaultMethods_MethodReference {
     public static void main(String[] args) {
         List<Treinador> treinadores = GeradorDeTreinadores.obterPersonagensPrincipaisDaPrimeiraTemporada();
         ordenarTreinadoresPorNomePorQuantidadeDePokemons(treinadores);
+
+        for (Treinador treinador : treinadores) {
+            System.out.println(treinador.getNome() + "-> " + treinador.getPokemons().size());
+        }
     }
 
     private static void ordenarTreinadoresPorNomePorQuantidadeDePokemons(List<Treinador> treinadores) {
         java6(treinadores);
-        //java8(treinadores);
-        treinadores.forEach(treinador -> {
-            System.out.println(treinador.getNome() + "-> " + treinador.getPokemons().size());
-        });
     }
 
     private static void java6(List<Treinador> treinadores) {
@@ -34,23 +34,6 @@ public class C_List_DefaultMethods_MethodReference {
                 return compararPorNome;
             }
         });
-    }
-
-    private static void java8(List<Treinador> treinadores) {
-        treinadores.sort((treinador1, treinador2) -> {
-            int compararPorNome = treinador1.getNome().compareTo(treinador2.getNome());
-            if (compararPorNome == 0) {
-                int compararPorQuantidadeDePokemons = treinador1.getPokemons().size() - treinador2.getPokemons().size();
-                return compararPorQuantidadeDePokemons;
-            }
-            return compararPorNome;
-        });
-        // ou melhor...
-        Comparator<Treinador> compararPorNome = Comparator.comparing(Treinador::getNome);
-        Comparator<Treinador> compararPorQuantidadeDePokemons = Comparator.comparing(treinador -> treinador.getPokemons().size());
-        treinadores.sort(
-                compararPorNome.thenComparing(compararPorQuantidadeDePokemons)
-        );
     }
 
 }

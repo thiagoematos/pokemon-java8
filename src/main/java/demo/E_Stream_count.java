@@ -16,7 +16,6 @@ public class E_Stream_count {
 
     private static long obterQuantidadeDePokemons(List<Treinador> treinadores) {
         return java6(treinadores);
-        //return java8(treinadores);
     }
 
     private static int java6(List<Treinador> treinadores) {
@@ -25,13 +24,6 @@ public class E_Stream_count {
             total += treinador.getPokemons().size();
         }
         return total;
-    }
-
-    private static long java8(List<Treinador> treinadores) {
-        return treinadores
-                .stream()
-                .mapToLong(t -> t.getPokemons().size())
-                .count();
     }
 
 }

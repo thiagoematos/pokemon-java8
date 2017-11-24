@@ -6,7 +6,6 @@ import util.GeradorDeTreinadores;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class F_Stream_flatMap_distinct {
 
@@ -14,16 +13,17 @@ public class F_Stream_flatMap_distinct {
         List<Treinador> treinadores = GeradorDeTreinadores.obterPersonagensPrincipaisDaPrimeiraTemporada();
 
         List<Pokemon> pokemons = obterPokemons(treinadores);
-        pokemons.forEach(System.out::println);
+        for (Pokemon pokemon : pokemons) {
+            System.out.println(pokemon);
+        }
     }
 
     static List<Pokemon> obterPokemons(List<Treinador> treinadores) {
         return java6(treinadores);
-        //return java8(treinadores);
     }
 
     private static List<Pokemon> java6(List<Treinador> treinadores) {
-        List<Pokemon> resultado = new ArrayList<>();
+        List<Pokemon> resultado = new ArrayList<Pokemon>();
         for (Treinador treinador : treinadores) {
             for (Pokemon pokemon : treinador.getPokemons()) {
                 if (!resultado.contains(pokemon)) {
@@ -32,13 +32,6 @@ public class F_Stream_flatMap_distinct {
             }
         }
         return resultado;
-    }
-
-    private static List<Pokemon> java8(List<Treinador> treinadores) {
-        return treinadores.stream()
-                .flatMap(t -> t.getPokemons().stream())
-                .distinct()
-                .collect(Collectors.toList());
     }
 
 }
