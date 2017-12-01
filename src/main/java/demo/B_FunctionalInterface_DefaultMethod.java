@@ -12,25 +12,21 @@ public class B_FunctionalInterface_DefaultMethod {
                 new Pokemon[]{Pokemon.ARCANINE}
         );
 
-        LigaValidador ligaIndigoValidador =
-                new LigaValidador() {
-                    @Override
-                    public boolean estaClassificado(Treinador treinador) {
-                        return treinador.getPokemons().size() > 3;
-                    }
-                };
-        LigaValidador ligaLaranaValidador =
-                new LigaValidador() {
-                    @Override
-                    public boolean estaClassificado(Treinador treinador) {
-                        return treinador.getNome().startsWith("J");
-                    }
-                };
+        LigaValidador ligaIndigoValidador = new LigaValidador() {
+            public boolean estaClassificado(Treinador treinador) {
+                return treinador.getPokemons().size() > 3;
+            }
+        };
+        LigaValidador ligaLaranjaValidador = new LigaValidador() {
+            public boolean estaClassificado(Treinador treinador) {
+                return treinador.getNome().startsWith("J");
+            }
+        };
 
         validarSeTreinadorPodeParticiparDaLiga(
                 "Liga Indigo", joaozinho, ligaIndigoValidador);
         validarSeTreinadorPodeParticiparDaLiga(
-                "Liga Laranja", joaozinho, ligaLaranaValidador);
+                "Liga Laranja", joaozinho, ligaLaranjaValidador);
     }
 
     private static void validarSeTreinadorPodeParticiparDaLiga(

@@ -1,36 +1,28 @@
 package demo;
 
 import model.Treinador;
-import util.GeradorDeTreinadores;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
 public class D_Stream_filter_map_Collectors_toList {
 
-    public static void main(String[] args) {
-        List<Treinador> treinadores = GeradorDeTreinadores.obterPersonagensPrincipaisDaPrimeiraTemporada();
-
-        List<String> classificados = obterNomeDosTreinadoresClassificados(treinadores);
-        imprimirNomeDosClassificados(classificados);
+    public static void imprimirNomeDosClassificados(Collection<Treinador> treinadores) {
+        Collection<String> nomeDosClassificados = obterNomeDosTreinadoresClassificados(treinadores);
+        imprimir(nomeDosClassificados);
     }
 
-    private static List<String> obterNomeDosTreinadoresClassificados(List<Treinador> treinadores) {
-        return java6(treinadores);
-    }
-
-    private static List<String> java6(List<Treinador> treinadores) {
-        List<String> classificados = new ArrayList<String>();
+    private static Collection<String> obterNomeDosTreinadoresClassificados(Collection<Treinador> treinadores) {
+        Collection<String> classificados = new ArrayList<String>();
         for (Treinador treinador : treinadores) {
-            if (treinador.getPokemons().size() > 3) {
+            if (treinador.getPokemons().size() > 2) {
                 classificados.add(treinador.getNome());
             }
         }
         return classificados;
     }
 
-    private static void imprimirNomeDosClassificados(List<String> classificados) {
-        // Java 6
+    private static void imprimir(Collection<String> classificados) {
         for (String nomeDoClassificado : classificados) {
             System.out.println(nomeDoClassificado);
         }
