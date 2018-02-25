@@ -1,7 +1,9 @@
 import demo.*;
+import model.Pokemon;
 import model.Treinador;
 import util.GeradorDeTreinadores;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class Main {
@@ -11,7 +13,10 @@ public class Main {
                 .obterPersonagensPrincipaisDaPrimeiraTemporada();
 
         System.out.println("Nome dos Treinadores: ");
-        A_Lambda.imprimirNomeDosTreinadores(treinadores);
+        A_Lambda.imprimirNomes(
+                treinadores,
+                Arrays.asList(Pokemon.values())
+        );
 
         System.out.println("Ordenando treinadores pela quantidade de pokemons...");
         C_List_DefaultMethods_MethodReference.ordenarTreinadoresPorNomePorQuantidadeDePokemons(treinadores);
