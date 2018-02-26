@@ -1,0 +1,18 @@
+✔️ JAVA 8
+
+⚫ Lambda
+⚫ Functional Interface
+⚫ Default Method
+⚫ MethodReference
+⚫   forEach
+⚫   sort
+⚫ Stream
+⚫   filter
+⚫   map
+⚫   flatMap
+⚫ Collectors
+⚫   toList
+⚫   toSet
+⚫   groupingBy
+⚫   toMap
+⚫ Optional

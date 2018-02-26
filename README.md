@@ -1,6 +1,6 @@
 # pokemon-java8
 Demonstração de algumas das novas features do Java 8 usando Modelo 1-Treinador para N-Pokemons.
-
+✔
 Introdução
     ( ) Vamos fazer um lambda?
     ( ) Mas antes, conhecer o model: (1)Treinador-(N)Pokemons
@@ -51,4 +51,19 @@ G_Collectors_groupingBy
     ( )  Código Linha 22 e 23
 H_Collectors_toMap_Optional
     ( ) Código Linha 24 chave-valor
-    ( ) Não fazer com optional
+    ( ) toMap
+            sem Optional ainda
+    ( ) Dá pra melhorar?
+    ( ) Optional errado: isPresent
+    ( ) Certo
+            map
+            orElse
+Recapitulação
+    ( ) Roteiro.txt
+    ( ) API de Stream é só uma das novidades
+            CompletableFuture
+            DataTime
+            Rhino
+    ( ) Slide: Por que usar
+               Meme
+    ( ) Perguntas???
