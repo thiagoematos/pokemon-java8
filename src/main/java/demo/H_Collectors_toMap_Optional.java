@@ -14,8 +14,8 @@ public class H_Collectors_toMap_Optional {
 
     public static void imprimirPokemonEsuaEvolucao(List<Treinador> treinadores) {
         Collection<Pokemon> pokemons = obterPokemons(treinadores);
-        Map<Pokemon, Pokemon> pokemonEsuaEvolucao = mapearEvolucao(pokemons);
-        imprimir(pokemonEsuaEvolucao);
+        Map<Pokemon, Pokemon> mapaDasEvolucoes = mapearEvolucao(pokemons);
+        imprimir(mapaDasEvolucoes);
     }
 
     private static Map<Pokemon, Pokemon> mapearEvolucao(Collection<Pokemon> pokemons) {
@@ -26,10 +26,10 @@ public class H_Collectors_toMap_Optional {
         return resultado;
     }
 
-    private static void imprimir(Map<Pokemon, Pokemon> pokemonEsuaEvolucao) {
-        for (Map.Entry<Pokemon, Pokemon> tupla : pokemonEsuaEvolucao.entrySet()) {
-            Pokemon pokemon = tupla.getKey();
-            Pokemon evolucao = tupla.getValue();
+    private static void imprimir(Map<Pokemon, Pokemon> mapaDasEvolucoes) {
+        for (Map.Entry<Pokemon, Pokemon> item : mapaDasEvolucoes.entrySet()) {
+            Pokemon pokemon = item.getKey();
+            Pokemon evolucao = item.getValue();
             if (evolucao == null) {
                 System.out.println(pokemon + " não tem evolução");
             } else {

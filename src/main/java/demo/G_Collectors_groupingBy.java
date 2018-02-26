@@ -12,11 +12,11 @@ import java.util.Map;
 public class G_Collectors_groupingBy {
 
     public static void imprimirPokemonsCategorizadosPorTipo(Collection<Treinador> treinadores) {
-        Map<Tipo, Collection<Pokemon>> pokemonsPorTipo = categorizarPokemonsPorTipo(F_Stream_flatMap_distinct.obterPokemons(treinadores));
-        imprimir(pokemonsPorTipo);
+        Map<Tipo, Collection<Pokemon>> grupos = agruparPorTipo(F_Stream_flatMap_distinct.obterPokemons(treinadores));
+        imprimir(grupos);
     }
 
-    private static Map<Tipo, Collection<Pokemon>> categorizarPokemonsPorTipo(Collection<Pokemon> pokemons) {
+    private static Map<Tipo, Collection<Pokemon>> agruparPorTipo(Collection<Pokemon> pokemons) {
         Map<Tipo, Collection<Pokemon>> resultado = new HashMap<Tipo, Collection<Pokemon>>();
         for (Pokemon pokemon : pokemons) {
             if (!resultado.containsKey(pokemon.getTipo())) {
@@ -27,11 +27,11 @@ public class G_Collectors_groupingBy {
         return resultado;
     }
 
-    private static void imprimir(Map<Tipo, Collection<Pokemon>> pokemonsPorTipo) {
-        for (Map.Entry<Tipo, Collection<Pokemon>> tupla : pokemonsPorTipo.entrySet()) {
-            Tipo tipo = tupla.getKey();
-            Collection<Pokemon> pokemonList = tupla.getValue();
-            System.out.println(tipo + " " + pokemonList);
+    private static void imprimir(Map<Tipo, Collection<Pokemon>> grupos) {
+        for (Map.Entry<Tipo, Collection<Pokemon>> grupo : grupos.entrySet()) {
+            Tipo tipo = grupo.getKey();
+            Collection<Pokemon> pokemons = grupo.getValue();
+            System.out.println(tipo + " " + pokemons);
         }
     }
 
