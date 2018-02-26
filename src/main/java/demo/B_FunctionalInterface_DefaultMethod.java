@@ -12,37 +12,13 @@ public class B_FunctionalInterface_DefaultMethod {
                 new Pokemon[]{Pokemon.ARCANINE}
         );
 
-        LigaValidador ligaIndigoValidador = new LigaValidador() {
-            public boolean estaClassificado(Treinador treinador) {
-                return treinador.getPokemons().size() > 3;
-            }
-        };
-        LigaValidador ligaLaranjaValidador = new LigaValidador() {
-            public boolean estaClassificado(Treinador treinador) {
-                return treinador.getNome().startsWith("J");
-            }
-        };
+        LigaValidador ligaIndigoValidador = treinador -> treinador.getPokemons().size() > 3;
+        LigaValidador ligaLaranjaValidador = treinador -> treinador.getNome().startsWith("J");
 
-        validarSeTreinadorPodeParticiparDaLiga(
-                "Liga Indigo", joaozinho, ligaIndigoValidador);
-        validarSeTreinadorPodeParticiparDaLiga(
-                "Liga Laranja", joaozinho, ligaLaranjaValidador);
-    }
-
-    private static void validarSeTreinadorPodeParticiparDaLiga(
-            String nomeDaLiga,
-            Treinador treinador,
-            LigaValidador ligaValidador) {
-
-        String resultado =
-                ligaValidador.estaClassificado(treinador)
-                        ? "CLASSIFICADO :)"
-                        : "DESCLASSIFICADO :(";
-
-        System.out.println(nomeDaLiga);
-        System.out.println(
-                treinador.getNome() + " está " + resultado
-        );
+        ligaIndigoValidador
+                .validarSeTreinadorPodeParticiparDaLiga("Liga Indigo", joaozinho);
+        ligaLaranjaValidador
+                .validarSeTreinadorPodeParticiparDaLiga("Liga Laranja", joaozinho);
     }
 
 }

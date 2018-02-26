@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Optional;
+
 public enum Pokemon {
 
     VENUSAUR(Tipo.VENENO, null),
@@ -45,6 +47,10 @@ public enum Pokemon {
 
     public Pokemon getEvolucao() {
         return evolucao;
+    }
+
+    public Optional<Pokemon> getPossivelEvolucao() {
+        return Optional.ofNullable(evolucao);
     }
 
 }
