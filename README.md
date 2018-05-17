@@ -19,7 +19,7 @@ Demonstração de algumas das novas features do Java 8.
 - [ ] Transformar os validadores para lambda
 - [ ] Jogar o método para dentro da interface
 - [ ] Explicar palavra-chave: ***default***
-- [ ] Sobreescrever *default method* na *Main*
+- [ ] Sobreescrever *default method* na *main.Main*
 - [ ] Reforçar: Lambda só em interface funcional
 
 # C_List_DefaultMethods_MethodReference
@@ -52,7 +52,7 @@ Comparator.thenComparing
 - [ ] Slide: Mostrar objetivo desse desafio
 - [ ] Código
 - [ ]     Só o que interessa:
-- [ ]         Linha 23 - pokemons de cada treinador
+- [ ]         Linha 23 - pokemons de cada trainer
 - [ ]         Linha 20 - *Set* para não repetir
 - [ ]     Mostrar *flatMap* espera um stream
 - [ ]     Coletar num *toSet()*

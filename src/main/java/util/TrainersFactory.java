@@ -1,15 +1,15 @@
 package util;
 
 import model.Pokemon;
-import model.Treinador;
+import model.Trainer;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class GeradorDeTreinadores {
+public class TrainersFactory {
 
-    public static List<Treinador> obterPersonagensPrincipaisDaPrimeiraTemporada() {
-        Treinador ash = new Treinador(
+    public static List<Trainer> get() {
+        Trainer ash = new Trainer(
                 "Ash",
                 new Pokemon[]{
                         Pokemon.PIKACHU,
@@ -19,7 +19,7 @@ public class GeradorDeTreinadores {
                 }
         );
 
-        Treinador misty = new Treinador(
+        Trainer misty = new Trainer(
                 "Misty",
                 new Pokemon[]{
                         Pokemon.NIDORAN_F,
@@ -28,7 +28,7 @@ public class GeradorDeTreinadores {
                 }
         );
 
-        Treinador brock = new Treinador(
+        Trainer brock = new Trainer(
                 "Brock",
                 new Pokemon[]{
                         Pokemon.RATTATA,

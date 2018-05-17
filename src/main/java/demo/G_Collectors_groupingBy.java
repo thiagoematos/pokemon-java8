@@ -1,8 +1,8 @@
 package demo;
 
 import model.Pokemon;
-import model.Tipo;
-import model.Treinador;
+import model.Type;
+import model.Trainer;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -11,27 +11,27 @@ import java.util.Map;
 
 public class G_Collectors_groupingBy {
 
-    public static void imprimirPokemonsCategorizadosPorTipo(Collection<Treinador> treinadores) {
-        Map<Tipo, Collection<Pokemon>> grupos = agruparPorTipo(F_Stream_flatMap_distinct.obterPokemons(treinadores));
-        imprimir(grupos);
+    public static void printPokemonsGroupedByType(Collection<Trainer> trainers) {
+        Map<Type, Collection<Pokemon>> groups = groupedByType(F_Stream_flatMap_distinct.getPokemons(trainers));
+        print(groups);
     }
 
-    private static Map<Tipo, Collection<Pokemon>> agruparPorTipo(Collection<Pokemon> pokemons) {
-        Map<Tipo, Collection<Pokemon>> resultado = new HashMap<Tipo, Collection<Pokemon>>();
+    private static Map<Type, Collection<Pokemon>> groupedByType(Collection<Pokemon> pokemons) {
+        Map<Type, Collection<Pokemon>> result = new HashMap<Type, Collection<Pokemon>>();
         for (Pokemon pokemon : pokemons) {
-            if (!resultado.containsKey(pokemon.getTipo())) {
-                resultado.put(pokemon.getTipo(), new HashSet<>());
+            if (!result.containsKey(pokemon.getType())) {
+                result.put(pokemon.getType(), new HashSet<>());
             }
-            resultado.get(pokemon.getTipo()).add(pokemon);
+            result.get(pokemon.getType()).add(pokemon);
         }
-        return resultado;
+        return result;
     }
 
-    private static void imprimir(Map<Tipo, Collection<Pokemon>> grupos) {
-        for (Map.Entry<Tipo, Collection<Pokemon>> grupo : grupos.entrySet()) {
-            Tipo tipo = grupo.getKey();
-            Collection<Pokemon> pokemons = grupo.getValue();
-            System.out.println(tipo + " " + pokemons);
+    private static void print(Map<Type, Collection<Pokemon>> groups) {
+        for (Map.Entry<Type, Collection<Pokemon>> group : groups.entrySet()) {
+            Type type = group.getKey();
+            Collection<Pokemon> pokemons = group.getValue();
+            System.out.println(type + " " + pokemons);
         }
     }
 

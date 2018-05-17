@@ -2,49 +2,49 @@ package model;
 
 public enum Pokemon {
 
-    VENUSAUR(Tipo.VENENO, null),
-    IVYSAUR(Tipo.VENENO, VENUSAUR),
-    BULBASAUR(Tipo.VENENO, IVYSAUR),
+    VENUSAUR(Type.POISONOUS, null),
+    IVYSAUR(Type.POISONOUS, VENUSAUR),
+    BULBASAUR(Type.POISONOUS, IVYSAUR),
 
-    RAICHU(Tipo.ELETRICO, null),
-    PIKACHU(Tipo.ELETRICO, RAICHU),
+    RAICHU(Type.ELECTRIC, null),
+    PIKACHU(Type.ELECTRIC, RAICHU),
 
-    CHARIZARD(Tipo.FOGO, null),
-    CHARMELEON(Tipo.FOGO, CHARIZARD),
-    CHARMANDER(Tipo.FOGO, CHARMELEON),
+    CHARIZARD(Type.FIRE, null),
+    CHARMELEON(Type.FIRE, CHARIZARD),
+    CHARMANDER(Type.FIRE, CHARMELEON),
 
-    BLASTOISE(Tipo.AGUA, RAICHU),
-    WARTORTLE(Tipo.AGUA, BLASTOISE),
-    SQUIRTLE(Tipo.AGUA, WARTORTLE),
+    BLASTOISE(Type.WATER, RAICHU),
+    WARTORTLE(Type.WATER, BLASTOISE),
+    SQUIRTLE(Type.WATER, WARTORTLE),
 
-    NIDORINA(Tipo.VENENO, null),
-    NIDORAN_F(Tipo.VENENO, NIDORINA),
+    NIDORINA(Type.POISONOUS, null),
+    NIDORAN_F(Type.POISONOUS, NIDORINA),
 
-    GOLDUCK(Tipo.AGUA, null),
-    PSYDUCK(Tipo.AGUA, GOLDUCK),
+    GOLDUCK(Type.WATER, null),
+    PSYDUCK(Type.WATER, GOLDUCK),
 
-    ARCANINE(Tipo.FOGO, null),
-    GROWLITHE(Tipo.FOGO, ARCANINE),
+    ARCANINE(Type.FIRE, null),
+    GROWLITHE(Type.FIRE, ARCANINE),
 
-    RATICATE(Tipo.NORMAL, null),
-    RATTATA(Tipo.NORMAL, RATICATE),
+    RATICATE(Type.NORMAL, null),
+    RATTATA(Type.NORMAL, RATICATE),
 
-    PORYGON(Tipo.NORMAL, null);
+    PORYGON(Type.NORMAL, null);
 
-    private Tipo tipo;
-    private Pokemon evolucao;
+    private Type type;
+    private Pokemon evolution;
 
-    Pokemon(Tipo tipo, Pokemon evolucao) {
-        this.tipo = tipo;
-        this.evolucao = evolucao;
+    Pokemon(Type type, Pokemon evolution) {
+        this.type = type;
+        this.evolution = evolution;
     }
 
-    public Tipo getTipo() {
-        return this.tipo;
+    public Type getType() {
+        return this.type;
     }
 
-    public Pokemon getEvolucao() {
-        return evolucao;
+    public Pokemon getEvolution() {
+        return evolution;
     }
 
 }

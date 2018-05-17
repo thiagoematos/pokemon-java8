@@ -1,39 +1,39 @@
 package demo;
 
 import model.Pokemon;
-import model.Treinador;
+import model.Trainer;
 
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static demo.F_Stream_flatMap_distinct.obterPokemons;
+import static demo.F_Stream_flatMap_distinct.getPokemons;
 
 public class H_Collectors_toMap_Optional {
 
-    public static void imprimirPokemonEsuaEvolucao(List<Treinador> treinadores) {
-        Collection<Pokemon> pokemons = obterPokemons(treinadores);
-        Map<Pokemon, Pokemon> mapaDasEvolucoes = mapearEvolucao(pokemons);
-        imprimir(mapaDasEvolucoes);
+    public static void printPokemonAndItsEvolution(List<Trainer> trainers) {
+        Collection<Pokemon> pokemons = getPokemons(trainers);
+        Map<Pokemon, Pokemon> evolutionsMap = mapEvolutions(pokemons);
+        print(evolutionsMap);
     }
 
-    private static Map<Pokemon, Pokemon> mapearEvolucao(Collection<Pokemon> pokemons) {
-        Map<Pokemon, Pokemon> resultado = new HashMap<Pokemon, Pokemon>();
+    private static Map<Pokemon, Pokemon> mapEvolutions(Collection<Pokemon> pokemons) {
+        Map<Pokemon, Pokemon> result = new HashMap<Pokemon, Pokemon>();
         for (Pokemon pokemon : pokemons) {
-            resultado.put(pokemon, pokemon.getEvolucao());
+            result.put(pokemon, pokemon.getEvolution());
         }
-        return resultado;
+        return result;
     }
 
-    private static void imprimir(Map<Pokemon, Pokemon> mapaDasEvolucoes) {
-        for (Map.Entry<Pokemon, Pokemon> item : mapaDasEvolucoes.entrySet()) {
+    private static void print(Map<Pokemon, Pokemon> evolutionsMap) {
+        for (Map.Entry<Pokemon, Pokemon> item : evolutionsMap.entrySet()) {
             Pokemon pokemon = item.getKey();
-            Pokemon evolucao = item.getValue();
-            if (evolucao == null) {
-                System.out.println(pokemon + " não tem evolução");
+            Pokemon evolution = item.getValue();
+            if (evolution == null) {
+                System.out.println(pokemon + " has no evolution");
             } else {
-                System.out.println(pokemon + " evolui para " + evolucao);
+                System.out.println(pokemon + " evolves to " + evolution);
             }
         }
     }

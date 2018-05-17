@@ -1,30 +1,30 @@
 package demo;
 
-import model.Treinador;
+import model.Trainer;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
 public class D_Stream_filter_map_Collectors_toList {
 
-    public static void imprimirNomeDosClassificados(Collection<Treinador> treinadores) {
-        Collection<String> nomeDosClassificados = obterNomeDosTreinadoresClassificados(treinadores);
-        imprimir(nomeDosClassificados);
+    public static void printNameOfClassifieds(Collection<Trainer> treinadores) {
+        Collection<String> nameOfClassifieds = getNameOfClassifiedTrainers(treinadores);
+        print(nameOfClassifieds);
     }
 
-    private static Collection<String> obterNomeDosTreinadoresClassificados(Collection<Treinador> treinadores) {
-        Collection<String> classificados = new ArrayList<String>();
-        for (Treinador treinador : treinadores) {
-            if (treinador.getPokemons().size() > 2) {
-                classificados.add(treinador.getNome());
+    private static Collection<String> getNameOfClassifiedTrainers(Collection<Trainer> trainers) {
+        Collection<String> classifieds = new ArrayList<String>();
+        for (Trainer trainer : trainers) {
+            if (trainer.getPokemons().size() > 2) {
+                classifieds.add(trainer.getName());
             }
         }
-        return classificados;
+        return classifieds;
     }
 
-    private static void imprimir(Collection<String> classificados) {
-        for (String nomeDoClassificado : classificados) {
-            System.out.println(nomeDoClassificado);
+    private static void print(Collection<String> classified) {
+        for (String nameOfClassified : classified) {
+            System.out.println(nameOfClassified);
         }
     }
 

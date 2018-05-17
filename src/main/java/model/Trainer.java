@@ -3,18 +3,18 @@ package model;
 import java.util.Arrays;
 import java.util.Collection;
 
-public class Treinador {
+public class Trainer {
 
-    private String nome;
+    private String name;
     private Collection<Pokemon> pokemons;
 
-    public Treinador(String nome, Pokemon[] pokemons) {
-        this.nome = nome;
+    public Trainer(String name, Pokemon[] pokemons) {
+        this.name = name;
         this.pokemons = Arrays.asList(pokemons);
     }
 
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return name;
     }
 
     public Collection<Pokemon> getPokemons() {

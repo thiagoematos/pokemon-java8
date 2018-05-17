@@ -1,15 +1,15 @@
 package demo;
 
-import model.Treinador;
+import model.Trainer;
 
 import java.util.Collection;
 
 public class E_Stream_sum {
 
-    public static int obterQuantidadeDePokemons(Collection<Treinador> treinadores) {
+    public static int getQuantityOfPokemons(Collection<Trainer> trainers) {
         int total = 0;
-        for (Treinador treinador : treinadores) {
-            total += treinador.getPokemons().size();
+        for (Trainer trainer : trainers) {
+            total += trainer.getPokemons().size();
         }
         return total;
     }

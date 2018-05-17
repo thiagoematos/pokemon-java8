@@ -1,47 +1,47 @@
 package demo;
 
 import model.Pokemon;
-import model.Treinador;
-import util.LigaValidador;
+import model.Trainer;
+import util.LeagueValidator;
 
 public class B_FunctionalInterface_DefaultMethod {
 
     public static void main(String[] args) {
-        Treinador joaozinho = new Treinador(
-                "Joãozinho",
+        Trainer john = new Trainer(
+                "John",
                 new Pokemon[]{Pokemon.ARCANINE}
         );
 
-        LigaValidador ligaIndigoValidador = new LigaValidador() {
-            public boolean estaClassificado(Treinador treinador) {
-                return treinador.getPokemons().size() > 3;
+        LeagueValidator leagueIndigoValidator = new LeagueValidator() {
+            public boolean isClassified(Trainer trainer) {
+                return trainer.getPokemons().size() > 3;
             }
         };
-        LigaValidador ligaLaranjaValidador = new LigaValidador() {
-            public boolean estaClassificado(Treinador treinador) {
-                return treinador.getNome().startsWith("J");
+        LeagueValidator leagueOrangeValidator = new LeagueValidator() {
+            public boolean isClassified(Trainer trainer) {
+                return trainer.getName().startsWith("J");
             }
         };
 
-        validarSeTreinadorPodeParticiparDaLiga(
-                "Liga Indigo", joaozinho, ligaIndigoValidador);
-        validarSeTreinadorPodeParticiparDaLiga(
-                "Liga Laranja", joaozinho, ligaLaranjaValidador);
+        validateIfTrainerCanParticipate(
+                "Indigo League", john, leagueIndigoValidator);
+        validateIfTrainerCanParticipate(
+                "Orange League", john, leagueOrangeValidator);
     }
 
-    private static void validarSeTreinadorPodeParticiparDaLiga(
-            String nomeDaLiga,
-            Treinador treinador,
-            LigaValidador ligaValidador) {
+    private static void validateIfTrainerCanParticipate(
+            String leagueName,
+            Trainer trainer,
+            LeagueValidator leagueValidator) {
 
-        String resultado =
-                ligaValidador.estaClassificado(treinador)
-                        ? "CLASSIFICADO :)"
-                        : "DESCLASSIFICADO :(";
+        String result =
+                leagueValidator.isClassified(trainer)
+                        ? "CLASSIFIED :)"
+                        : "DECLASSIFIED :(";
 
-        System.out.println(nomeDaLiga);
+        System.out.println(leagueName);
         System.out.println(
-                treinador.getNome() + " está " + resultado
+                trainer.getName() + " is " + result
         );
     }
 
